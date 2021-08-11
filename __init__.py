@@ -5,8 +5,8 @@ from .search import *
 
 sv_help = '''=====功能=====
 [战地1查询 角色昵称] 查询战地1信息
-[战地4查询 角色昵称] 查询战地1信息
-[战地5查询 角色昵称] 查询战地1信息'''.strip()
+[战地4查询 角色昵称] 查询战地4信息
+[战地5查询 角色昵称] 查询战地5信息'''.strip()
 
 if os.path.exists(R.img('bf_search').path):
     shutil.rmtree(R.img('bf_search').path)  #删除目录，包括目录下的所有文件
