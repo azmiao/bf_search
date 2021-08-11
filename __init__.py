@@ -32,19 +32,19 @@ async def auto_clean():
         os.mkdir(R.img('bf_search').path)
 
 @sv.on_prefix('战地1查询')
-async def search_info(bot, ev):
+async def search_info1(bot, ev):
     name = ev.message.extract_plain_text()
     msg = create_msg(name, 'bf1')
     await bot.send(ev, msg)
 
 @sv.on_prefix('战地4查询')
-async def search_info(bot, ev):
+async def search_info4(bot, ev):
     name = ev.message.extract_plain_text()
     msg = create_msg(name, 'bf4')
     await bot.send(ev, msg)
 
 @sv.on_prefix('战地5查询')
-async def search_info(bot, ev):
+async def search_info5(bot, ev):
     name = ev.message.extract_plain_text()
     msg = create_msg(name, 'bfv')
     await bot.send(ev, msg)
