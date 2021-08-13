@@ -3,7 +3,7 @@
 
 该版本直接调用了gametools的api，但cloudflare的cdn速度看地区了，有些地方可能打不开，但因为此版是公开版，因此功能方面可能不会经常更新。
 
-BTW: 自己用的私人版是不会发出来滴，欸嘿嘿，当然要感谢 [冷雷佬](https://github.com/ColdThunder11) 和战地1的K-ON服服主 [SuzuBucket](https://github.com/CX4A3) 提供key
+BTW: 自己用的私人版是不会发出来滴，欸嘿嘿，当然要感谢 [冷雷佬](https://github.com/ColdThunder11) 和战地的K-ON服服主 [SuzuBucket](https://github.com/CX4A3) 提供key
 
 由于个人不需要服务器管理功能（我没有服务器），所以需要这些功能请去找他们租梓喵bot
 
