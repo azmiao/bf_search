@@ -34,17 +34,29 @@ async def auto_clean():
 @sv.on_prefix('战地1查询')
 async def search_info1(bot, ev):
     name = ev.message.extract_plain_text()
+    msg_e = '正在从Gametool查询，预计5-10秒'
+    await bot.send(ev, msg_e)
     msg = create_msg(name, 'bf1')
+    if msg == 'gametool网站连接失败！':
+        msg = msg + '\n由于API在国外所以有时可能链接不上，你可以尝试输入"战地帮助"采用用国内的K-ON的API查询'
     await bot.send(ev, msg)
 
 @sv.on_prefix('战地4查询')
 async def search_info4(bot, ev):
     name = ev.message.extract_plain_text()
+    msg_e = '正在从Gametool查询，预计5-10秒'
+    await bot.send(ev, msg_e)
     msg = create_msg(name, 'bf4')
+    if msg == 'gametool网站连接失败！':
+        msg = msg + '\n由于API在国外所以有时可能链接不上，你可以尝试过会再查'
     await bot.send(ev, msg)
 
 @sv.on_prefix('战地5查询')
 async def search_info5(bot, ev):
     name = ev.message.extract_plain_text()
+    msg_e = '正在从Gametool查询，预计5-10秒'
+    await bot.send(ev, msg_e)
     msg = create_msg(name, 'bfv')
+    if msg == 'gametool网站连接失败！':
+        msg = msg + '\n由于API在国外所以有时可能链接不上，你可以尝试过会再查'
     await bot.send(ev, msg)

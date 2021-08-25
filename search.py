@@ -10,7 +10,11 @@ def get_info(name, bf):
         'name': name,
         'lang': 'en-us'
     }
-    per_info = requests.get(url, params).json()
+    try:
+        per_info = requests.get(url, params, timeout=(5,10)).json()
+    except:
+        msg = 'gametool网站连接失败！'
+        return msg
     return per_info
 
 def create_img(img_url, name, bf):
@@ -24,11 +28,9 @@ def create_img(img_url, name, bf):
     file.close()
 
 def create_msg(name, bf):
-    try:
-        per_info = get_info(name, bf)
-    except:
-        msg = 'gametool网站连接失败！'
-        return msg
+    per_info = get_info(name, bf)
+    if per_info == 'gametool网站连接失败！':
+        return per_info
     avatar = per_info['avatar']
     userName = per_info['userName']
     rank = per_info['rank']
@@ -42,7 +44,7 @@ def create_msg(name, bf):
     headshots = per_info['headshots']
     kills = per_info['kills']
     roundsPlayed = per_info['roundsPlayed']
-    Killsperround = kills//roundsPlayed
+    Killsperround = round(kills/roundsPlayed, 2)
     timePlayed = per_info['timePlayed']
 
     create_img(avatar, name, bf)
