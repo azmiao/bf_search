@@ -85,8 +85,8 @@ def create_bf4msg(name, bf):
     winPercent = per_info['winPercent']
     accuracy = per_info['accuracy']
     headshots = per_info['headshots']
-    kills = per_info['kills']
-    roundsPlayed = per_info['wins'] + per_info['loses']
+    kills = int(per_info['kills'])
+    roundsPlayed = int(per_info['wins']) + int(per_info['loses'])
     Killsperround = round(kills/roundsPlayed, 2)
     timePlayed = per_info['timePlayed']
 
