@@ -3,11 +3,11 @@
 
 该版本直接调用了gametools的api，但cloudflare的cdn速度看地区了，有些地方可能打不开，但因为此版是公开版，因此功能方面可能不会经常更新。
 
-BTW: 自己用的私人版是不会发出来滴，欸嘿嘿，当然要感谢 [冷雷佬](https://github.com/ColdThunder11) 和战地的K-ON服服主 [SuzuBucket](https://github.com/CX4A3) 提供key
-
-由于个人不需要服务器管理功能（我没有服务器），所以需要这些功能请去找他们租梓喵bot
+BTW: 自己用的私人版是不会发出来滴，欸嘿嘿，当然要感谢 [冷雷佬](https://github.com/ColdThunder11) 和战地1的K-ON服服主 SuzuBucket 提供key
 
 ## 更新日志
+
+21-09-01    v1.1    修复战地4查询的问题
 
 21-08-10    v1.0    首次测试
 
@@ -32,7 +32,7 @@ https://github.com/azmiao/bf_search/
 
 ## 简单食用教程：
 
-可看下方链接（~~还没写~~，不写了，写个锤子，以后再说，反正又没啥特殊的，万变不离其宗）：
+可看下方链接（还没写）：
 
 https://www.594594.xyz/2021/08/11/bf_search/
 

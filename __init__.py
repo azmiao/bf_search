@@ -46,7 +46,7 @@ async def search_info4(bot, ev):
     name = ev.message.extract_plain_text()
     msg_e = '正在从Gametool查询，预计5-10秒'
     await bot.send(ev, msg_e)
-    msg = create_msg(name, 'bf4')
+    msg = create_bf4msg(name, 'bf4')
     if msg == 'gametool网站连接失败！':
         msg = msg + '\n由于API在国外所以有时可能链接不上，你可以尝试过会再查'
     await bot.send(ev, msg)
