@@ -31,6 +31,9 @@ def create_msg(name, bf):
     per_info = get_info(name, bf)
     if per_info == 'gametool网站连接失败！':
         return per_info
+    nodata = {"detail": "playername not found"}
+    if per_info == nodata:
+        return '未找到此人'
     avatar = per_info['avatar']
     userName = per_info['userName']
     rank = per_info['rank']
@@ -76,6 +79,9 @@ def create_bf4msg(name, bf):
     per_info = get_bf4info(name, bf)
     if per_info == 'gametool网站连接失败！':
         return per_info
+    nodata = {"detail": "playername not found"}
+    if per_info == nodata:
+        return '未找到此人'
     avatar = per_info['avatar']
     userName = per_info['userName']
     rank = per_info['rank']
