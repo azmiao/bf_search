@@ -3,10 +3,29 @@ import shutil
 from hoshino import Service, R
 from .search import *
 
-sv_help = '''=====功能=====
+sv_help = '''=====Gametool数据源=====
+(Gametool国内经常打不开)
 [战地1查询 角色昵称] 查询战地1信息
+
 [战地4查询 角色昵称] 查询战地4信息
-[战地5查询 角色昵称] 查询战地5信息'''.strip()
+
+[战地5查询 角色昵称] 查询战地5信息
+
+=====K-ON数据=====
+(稳定，但只有战地1/5的数据)
+[bf1查询 角色昵称] 查询战地1信息
+
+[bfv查询 角色昵称] 查询战地5信息
+
+[bf1查id 角色昵称] 查询战地1的个人ID
+
+[bf1查ban 角色昵称] 查询战地1的ban状态
+
+[bf1正在游玩 角色昵称] 查询战地1的正在游玩的服务器
+
+[bf1最近游玩 角色昵称] 查询战地1的最近游玩过的服务器
+
+[bf1查服务器 服务器名] 根据服务器名查询该服务器ID'''.strip()
 
 if os.path.exists(R.img('bf_search').path):
     shutil.rmtree(R.img('bf_search').path)  #删除目录，包括目录下的所有文件
@@ -59,4 +78,46 @@ async def search_info5(bot, ev):
     msg = create_msg(name, 'bfv')
     if msg == 'gametool网站连接失败！':
         msg = msg + '\n由于API在国外所以有时可能链接不上，你可以尝试过会再查'
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bf1查询')
+async def search_info(bot, ev):
+    displayName = ev.message.extract_plain_text()
+    msg = get_pinfo(displayName)
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bf1查id')
+async def search_pid(bot, ev):
+    displayName = ev.message.extract_plain_text()
+    msg = f'{displayName}的ID为：' + str(get_pid(displayName))
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bf1查ban')
+async def check_pid(bot, ev):
+    displayName = ev.message.extract_plain_text()
+    msg = f'{displayName}的联ban状态为：' + str(check_ban(displayName))
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bf1正在游玩')
+async def get_playing(bot, ev):
+    displayName = ev.message.extract_plain_text()
+    msg = str(get_playing_server(displayName))
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bf1最近游玩')
+async def get_his_playing(bot, ev):
+    displayName = ev.message.extract_plain_text()
+    msg = str(get_history(displayName))
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bf1查服务器')
+async def search_server(bot, ev):
+    name = ev.message.extract_plain_text()
+    msg = str(get_serverid(name))
+    await bot.send(ev, msg)
+
+@sv.on_prefix('bfv查询')
+async def search_info(bot, ev):
+    displayName = ev.message.extract_plain_text()
+    msg = get_bfvpinfo(displayName)
     await bot.send(ev, msg)
