@@ -1,11 +1,26 @@
 import requests
 import os,base64
+import yaml
 from io import BytesIO
 from hoshino import R
 
 def get_key():
     key = ''
     return key
+
+def get_displayName(user_id):
+    current_dir = os.path.join(os.path.dirname(__file__), 'config.yml')
+    file = open(current_dir, 'r', encoding="UTF-8")
+    file_data = file.read()
+    file.close()
+    displayName = None
+    config = yaml.load(file_data, Loader=yaml.FullLoader)
+    for user in config['bf_info']:
+        if user['user_id'] == user_id:
+            displayName = user['displayName']
+    if displayName == None:
+        displayName = f'你当前QQ暂未绑定战地'
+    return displayName
 
 def get_info(name, bf):
     url = f'https://api.gametools.network/{bf}/stats/'
